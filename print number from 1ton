@@ -1,0 +1,15 @@
+//Q26: Write a program to print numbers from 1 to n.
+#include<stdio.h>
+
+int main()
+{
+int n,a;
+
+printf("Enter a:");
+scanf("%d",&a);
+  for(n=1;n<=a;n++)
+{
+printf("%d ",n);  
+}      
+return 0;
+}
