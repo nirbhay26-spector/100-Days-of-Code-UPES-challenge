@@ -1,0 +1,39 @@
+//Q54: Write a program to print the following pattern:
+
+  // *
+ // ***
+// *****
+//*******
+// *****
+//  ***
+//   *
+#include <stdio.h>
+
+int main() {
+    int n, i, j, space, stars;
+
+    printf("Enter number of rows (for half diamond): ");
+    scanf("%d", &n);
+
+    // Top half - growing
+    for (i = 1; i <= n; i++) {
+        for (space = 1; space <= n - i; space++)
+            printf(" ");
+        stars = 2 * i - 1;
+        for (j = 1; j <= stars; j++)
+            printf("*");
+        printf("\n");
+    }
+
+    // Bottom half - shrinking
+    for (i = n - 1; i >= 1; i--) {
+        for (space = 1; space <= n - i; space++)
+            printf(" ");
+        stars = 2 * i - 1;
+        for (j = 1; j <= stars; j++)
+            printf("*");
+        printf("\n");
+    }
+
+    return 0;
+}
