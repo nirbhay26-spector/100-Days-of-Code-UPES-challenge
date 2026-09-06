@@ -1,0 +1,29 @@
+//Q51: Write a program to print the following pattern:
+//    5
+//   45
+//  345
+// 2345
+// 12345
+#include <stdio.h>
+
+int main() {
+    int n, i, j, space, start;
+
+    printf("Enter number of rows: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        // print spaces first
+        for (space = 1; space <= n - i; space++)
+            printf(" ");
+
+        // print numbers
+        start = n - i + 1;
+        for (j = start; j <= n; j++)
+            printf("%d", j);
+
+        printf("\n");
+    }
+
+    return 0;
+}
