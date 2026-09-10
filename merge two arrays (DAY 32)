@@ -1,0 +1,39 @@
+// Q63: Merge two arrays.
+
+#include <stdio.h>
+
+int main() {
+    int n1, n2, i;
+
+    printf("Enter size of first array: ");
+    scanf("%d", &n1);
+    int A[n1];
+    printf("Enter %d elements: ", n1);
+    for (i = 0; i < n1; i++)
+        scanf("%d", &A[i]);
+
+    printf("Enter size of second array: ");
+    scanf("%d", &n2);
+    int B[n2];
+    printf("Enter %d elements: ", n2);
+    for (i = 0; i < n2; i++)
+        scanf("%d", &B[i]);
+
+    int merged[n1 + n2];
+
+    for (i = 0; i < n1; i++) {
+        merged[i] = A[i];
+    }
+
+    for (i = 0; i < n2; i++) {
+        merged[n1 + i] = B[i];
+    }
+
+    printf("Merged array: ");
+    for (i = 0; i < n1 + n2; i++) {
+        printf("%d ", merged[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
