@@ -1,0 +1,25 @@
+//Q72: Find the sum of all elements in a matrix.
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+
+    // Read matrix dimensions
+    if (scanf("%d %d", &rows, &cols) != 2) return 0;
+
+    int matrix[rows][cols];
+    int sum = 0;
+
+    // Read matrix elements and accumulate the sum
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+            sum += matrix[i][j];
+        }
+    }
+
+    // Print the total sum of all elements
+    printf("%d\n", sum);
+
+    return 0;
+}
