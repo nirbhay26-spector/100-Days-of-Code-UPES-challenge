@@ -1,0 +1,29 @@
+/*
+Q78: Find the sum of main diagonal elements for a square matrix.
+*/
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int rows, cols;
+    if (!(cin >> rows >> cols)) return 0;
+
+    vector<vector<int>> matrix(rows, vector<int>(cols));
+    int diagonalSum = 0;
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            cin >> matrix[i][j];
+            // Main diagonal elements occur when row index equals column index
+            if (i == j) {
+                diagonalSum += matrix[i][j];
+            }
+        }
+    }
+
+    cout << diagonalSum << endl;
+
+    return 0;
+}
