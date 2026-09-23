@@ -1,0 +1,33 @@
+// Q91: Remove all vowels from a string.
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+// Function to check if a character is a vowel
+bool isVowel(char ch) {
+    ch = tolower(ch);
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+}
+
+// Function to remove vowels from the input string
+string removeVowels(string str) {
+    string result = "";
+    for (char ch : str) {
+        if (!isVowel(ch)) {
+            result += ch;
+        }
+    }
+    return result;
+}
+
+int main() {
+    string str;
+    cin >> str;
+
+    cout << removeVowels(str) << endl;
+
+    return 0;
+}
