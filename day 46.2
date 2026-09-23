@@ -1,0 +1,30 @@
+// Q92: Find the first repeating lowercase alphabet in a string.
+
+#include <iostream>
+#include <string>
+#include <unordered_set>
+
+using namespace std;
+
+char findFirstRepeating(const string& str) {
+    unordered_set<char> seen;
+    for (char ch : str) {
+        if (seen.count(ch)) {
+            return ch;
+        }
+        seen.insert(ch);
+    }
+    return '\0'; 
+}
+
+int main() {
+    string str;
+    cin >> str;
+
+    char result = findFirstRepeating(str);
+    if (result != '\0') {
+        cout << result << endl;
+    }
+
+    return 0;
+}
