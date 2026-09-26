@@ -1,0 +1,53 @@
+// Q98: Print initials of a name with the surname displayed in full.
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[200];
+
+    if (fgets(str, sizeof(str), stdin) != NULL) {
+        // Remove trailing newline if present
+        str[strcspn(str, "\n")] = '\0';
+
+        int len = strlen(str);
+        
+        // Trim trailing spaces
+        while (len > 0 && str[len - 1] == ' ') {
+            str[--len] = '\0';
+        }
+
+        // Find the index where the last word (surname) starts
+        int lastSpaceIndex = -1;
+        for (int i = len - 1; i >= 0; i--) {
+            if (str[i] == ' ') {
+                lastSpaceIndex = i;
+                break;
+            }
+        }
+
+        // If there's only one word, print it as is
+        if (lastSpaceIndex == -1) {
+            printf("%s\n", str);
+        } else {
+            // Print initials for all words except the last one
+            int printNext = 1;
+            for (int i = 0; i < lastSpaceIndex; i++) {
+                if (str[i] != ' ') {
+                    if (printNext) {
+                        printf("%c.", toupper(str[i]));
+                        printNext = 0;
+                    }
+                } else {
+                    printNext = 1;
+                }
+            }
+
+            // Print space followed by the full surname
+            printf(" %s\n", &str[lastSpaceIndex + 1]);
+        }
+    }
+
+    return 0;
+}
