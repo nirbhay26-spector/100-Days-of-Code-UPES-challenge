@@ -1,0 +1,31 @@
+// Q97: Print the initials of a name.
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str[200];
+
+    if (fgets(str, sizeof(str), stdin) != NULL) {
+        // Remove trailing newline if present
+        str[strcspn(str, "\n")] = '\0';
+
+        int len = strlen(str);
+        int printNext = 1;
+
+        for (int i = 0; i < len; i++) {
+            if (str[i] != ' ') {
+                if (printNext) {
+                    printf("%c.", toupper(str[i]));
+                    printNext = 0;
+                }
+            } else {
+                printNext = 1;
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
