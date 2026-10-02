@@ -1,0 +1,26 @@
+// Q104: Write a Program to take a positive integer n as input, and find the pivot integer x such that the sum of all elements between 1 and x inclusively equals the sum of all elements between x and n inclusively. Print the pivot integer x. If no such integer exists, print -1. Assume that it is guaranteed that there will be at most one pivot integer for the given input.
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    if (scanf("%d", &n) != 1) return 0;
+    
+    // Total sum from 1 to n is n * (n + 1) / 2
+    int total_sum = n * (n + 1) / 2;
+    
+    // We need x such that sum(1 to x) == sum(x to n)
+    // sum(1 to x) = x * (x + 1) / 2
+    // sum(x to n) = total_sum - sum(1 to x-1) = total_sum - (x - 1) * x / 2
+    // Setting them equal and solving gives x * x = total_sum
+    
+    int root = (int)sqrt(total_sum);
+    if (root * root == total_sum) {
+        printf("%d\n", root);
+    } else {
+        printf("-1\n");
+    }
+    
+    return 0;
+}
