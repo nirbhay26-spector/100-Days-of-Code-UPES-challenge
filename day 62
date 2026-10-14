@@ -1,0 +1,27 @@
+// Write a program to take an integer array arr as input. The task is to find the maximum sum of any contiguous subarray using Kadane's algorithm. Print the maximum sum as output. If all elements are negative, print the largest (least negative) element.
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int n;
+    if (!(cin >> n)) return 0;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    long long maxSoFar = arr[0];
+    long long currMax = arr[0];
+
+    for (int i = 1; i < n; ++i) {
+        currMax = max((long long)arr[i], currMax + arr[i]);
+        maxSoFar = max(maxSoFar, currMax);
+    }
+
+    cout << maxSoFar << endl;
+
+    return 0;
+}
