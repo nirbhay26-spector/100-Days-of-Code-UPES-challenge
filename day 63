@@ -1,0 +1,34 @@
+// Q113: Write a program to take an integer array arr and an integer k as inputs. The task is to find the kth smallest element in the array. Print the kth smallest element as output.
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int n, k;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    
+    vector<int> arr(n);
+    cout << "Enter elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    cout << "Enter k: ";
+    cin >> k;
+    
+    // Sort the array in ascending order
+    sort(arr.begin(), arr.end());
+    
+    // The kth smallest element is at index k - 1 (0-based indexing)
+    if (k > 0 && k <= n) {
+        cout << "The " << k << "th smallest element is: " << arr[k - 1] << endl;
+    } else {
+        cout << "Invalid value of k!" << endl;
+    }
+    
+    return 0;
+}
