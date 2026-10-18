@@ -1,0 +1,59 @@
+// Q117: Write a program to take two sorted arrays of size m and n as input. Merge both the arrays such that the merged array is also sorted. Print the merged array.
+
+#include <stdio.h>
+
+int main() {
+    int m, n;
+    
+    // Input size of first array
+    printf("Enter size of first array: ");
+    scanf("%d", &m);
+    int nums1[m];
+    printf("Enter elements of first sorted array: ");
+    for (int i = 0; i < m; i++) {
+        scanf("%d", &nums1[i]);
+    }
+    
+    // Input size of second array
+    printf("Enter size of second array: ");
+    scanf("%d", &n);
+    int nums2[n];
+    printf("Enter elements of second sorted array: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums2[i]);
+    }
+    
+    // Merge the two arrays
+    int merged[m + n];
+    int i = 0, j = 0, k = 0;
+    
+    while (i < m && j < n) {
+        if (nums1[i] <= nums2[j]) {
+            merged[k++] = nums1[i++];
+        } else {
+            merged[k++] = nums2[j++];
+        }
+    }
+    
+    // Copy remaining elements of nums1, if any
+    while (i < m) {
+        merged[k++] = nums1[i++];
+    }
+    
+    // Copy remaining elements of nums2, if any
+    while (j < n) {
+        merged[k++] = nums2[j++];
+    }
+    
+    // Print the merged array
+    printf("Merged array: ");
+    for (int idx = 0; idx < m + n; idx++) {
+        printf("%d", merged[idx]);
+        if (idx < m + n - 1) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+    
+    return 0;
+}
