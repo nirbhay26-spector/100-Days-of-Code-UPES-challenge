@@ -1,0 +1,32 @@
+// Q118: Write a program to take an input array of size n. The array should contain all the integers between 0 to n except for one. Print that missing number
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    
+    printf("Enter the size of the array (n): ");
+    scanf("%d", &n);
+    
+    int nums[n];
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+    
+    // The array contains elements from 0 to n except one, meaning the array size is n 
+    // and the numbers span up to n. Therefore, the total expected count of numbers is n + 1.
+    // We can use the sum formula from 0 to n: sum = (n * (n + 1)) / 2
+    int expected_sum = (n * (n + 1)) / 2;
+    int actual_sum = 0;
+    
+    for (int i = 0; i < n; i++) {
+        actual_sum += nums[i];
+    }
+    
+    int missing_number = expected_sum - actual_sum;
+    
+    printf("Missing number: %d\n", missing_number);
+    
+    return 0;
+}
