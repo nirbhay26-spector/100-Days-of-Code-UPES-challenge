@@ -1,0 +1,59 @@
+// Q133: Create an enum for months and print how many days each month has.
+
+#include <stdio.h>
+#include <string.h>
+
+enum Month {
+    JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
+};
+
+int main() {
+    char input[20];
+    
+    printf("Enter month name (e.g., JAN, FEB): ");
+    if (scanf("%19s", input) != 1) {
+        return 1;
+    }
+    
+    enum Month m;
+    
+    if (strcmp(input, "JAN") == 0 || strcmp(input, "jan") == 0) m = JAN;
+    else if (strcmp(input, "FEB") == 0 || strcmp(input, "feb") == 0) m = FEB;
+    else if (strcmp(input, "MAR") == 0 || strcmp(input, "mar") == 0) m = MAR;
+    else if (strcmp(input, "APR") == 0 || strcmp(input, "apr") == 0) m = APR;
+    else if (strcmp(input, "MAY") == 0 || strcmp(input, "may") == 0) m = MAY;
+    else if (strcmp(input, "JUN") == 0 || strcmp(input, "jun") == 0) m = JUN;
+    else if (strcmp(input, "JUL") == 0 || strcmp(input, "jul") == 0) m = JUL;
+    else if (strcmp(input, "AUG") == 0 || strcmp(input, "aug") == 0) m = AUG;
+    else if (strcmp(input, "SEP") == 0 || strcmp(input, "sep") == 0) m = SEP;
+    else if (strcmp(input, "OCT") == 0 || strcmp(input, "oct") == 0) m = OCT;
+    else if (strcmp(input, "NOV") == 0 || strcmp(input, "nov") == 0) m = NOV;
+    else if (strcmp(input, "DEC") == 0 || strcmp(input, "dec") == 0) m = DEC;
+    else {
+        printf("Invalid month input!\n");
+        return 1;
+    }
+    
+    switch (m) {
+        case JAN:
+        case MAR:
+        case MAY:
+        case JUL:
+        case AUG:
+        case OCT:
+        case DEC:
+            printf("31 days\n");
+            break;
+        case APR:
+        case JUN:
+        case SEP:
+        case NOV:
+            printf("30 days\n");
+            break;
+        case FEB:
+            printf("28 or 29 days\n");
+            break;
+    }
+    
+    return 0;
+}
