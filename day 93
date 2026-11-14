@@ -1,0 +1,46 @@
+// Q143: Find and print the student with the highest marks.
+
+#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+
+int main() {
+    int n;
+    printf("Enter number of students: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid number of students!\n");
+        return 1;
+    }
+    
+    struct Student students[n];
+    
+    for (int i = 0; i < n; i++) {
+        printf("\nEnter details for student %d (Name, Roll, Marks):\n", i + 1);
+        printf("Name: ");
+        scanf("%49s", students[i].name);
+        printf("Roll: ");
+        scanf("%d", &students[i].roll);
+        printf("Marks: ");
+        scanf("%f", &students[i].marks);
+    }
+    
+    int topperIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (students[i].marks > students[topTopperIndex = i].marks) {
+            topperIndex = i;
+        }
+    }
+    
+    // Printing topper details
+    if (students[topperIndex].marks == (int)students[topperIndex].marks) {
+        printf("\nTopper: %s (Marks: %d)\n", students[topperIndex].name, (int)students[topperIndex].marks);
+    } else {
+        printf("\nTopper: %s (Marks: %.2f)\n", students[topperIndex].name, students[topperIndex].marks);
+    }
+    
+    return 0;
+}
