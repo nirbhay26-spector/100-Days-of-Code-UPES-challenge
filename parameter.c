@@ -1,0 +1,36 @@
+//: Write a function that accepts a structure as parameter and prints its members.
+
+#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+
+// Function that accepts a structure by value and prints its members
+void printStudent(struct Student s) {
+    if (s.marks == (int)s.marks) {
+        printf("Name: %s | Roll: %d | Marks: %d\n", s.name, s.roll, (int)s.marks);
+    } else {
+        printf("Name: %s | Roll: %d | Marks: %.2f\n", s.name, s.roll, s.marks);
+    }
+}
+
+int main() {
+    struct Student s;
+    
+    printf("Enter Name: ");
+    scanf("%49s", s.name);
+    
+    printf("Enter Roll: ");
+    scanf("%d", &s.roll);
+    
+    printf("Enter Marks: ");
+    scanf("%f", &s.marks);
+    
+    printf("\n");
+    printStudent(s);
+    
+    return 0;
+}
